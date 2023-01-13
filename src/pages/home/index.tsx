@@ -1,4 +1,6 @@
+import { GlobalToastContext } from '@components';
 import axios, { AxiosError } from 'axios';
+import { useContext } from 'react';
 import { useQuery } from 'react-query';
 
 interface ISuperheroes {
@@ -12,6 +14,7 @@ const fetchSuperHeroes = () => {
 };
 
 export const Home = () => {
+  const { setToastState } = useContext(GlobalToastContext);
   // const { isLoading, data, isError, error, isFetching, refetch } = useQuery(
   //   'super-heroes',
   //   fetchSuperHeroes,
@@ -28,9 +31,15 @@ export const Home = () => {
   //   return <h2>{error.message}</h2>;
   // }
 
+  const onOpenToast = () => {
+    setToastState({ status: 'error', message: 'hai berhasil nih' });
+  };
+  
+
   return (
     <>
       <h1>Home</h1>
+      <button onClick={onOpenToast}>Toast Open</button>
       {/* {data?.data.map((item: ISuperheroes) => (
         <h3 key={item?.id}>{item?.name}</h3>
       ))} */}

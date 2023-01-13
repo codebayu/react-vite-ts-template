@@ -19,7 +19,10 @@
     "paths": {
       "@pages": ["src/pages"],
       "@components": ["src/components"],
-      "@constant": ["src/constant"]
+      "@constant": ["src/constant"],
+      "@types": ["src/types"],
+      "@styles": ["src/styles"],
+      "@assets": ["src/assets"]
     }
   },
   "include": ["src"],

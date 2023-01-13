@@ -7,6 +7,7 @@ import {
   Toast,
 } from '@components';
 import { useContext } from 'react';
+import { BrowserRouter } from 'react-router-dom';
 
 const queryClient = new QueryClient();
 
@@ -34,7 +35,9 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <GlobalToastProvider>
-        <AppWithToast />
+        <BrowserRouter>
+          <AppWithToast />
+        </BrowserRouter>
       </GlobalToastProvider>
       <ReactQueryDevtools initialIsOpen={false} position="bottom-right" />
     </QueryClientProvider>

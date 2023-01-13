@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
-import React, { useState, createContext, FC } from 'react';
+import React, { useState, createContext } from 'react';
 import { ToastProps } from '../molecules';
 
 type State = Omit<ToastProps, 'onClose'> | undefined;
@@ -25,7 +25,9 @@ export const GlobalToastContext = createContext<{
 export const GlobalToastProvider = ({ children }: GlobalToastProviderProps) => {
   const [toastState, setToastStateLocal] = useState<State>();
   const [isOpenToast, setIsOpenToast] = useState(false);
+
   const closeToast = () => setIsOpenToast(false);
+
   const setToastState = (newState: State) => {
     setToastStateLocal(newState);
     setIsOpenToast(true);
